@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Enquetes</title>
+  </head>
+  <body>
+    <h1>Aplicação de Enquetes</h1>
+    <h2>Lista das Últimas Perguntas</h2>
+    {% if ultimas_perguntas %}
+      <ul>
+        {% for pergunta in ultimas_perguntas %}
+          <li><a href="{% url 'enquete:detalhes' pergunta.id %}">
+            {{ pergunta.texto }}
+          </a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nenhuma pergunta cadastrada.</p>
+    {% endif %}
+  </body>
+</html>
